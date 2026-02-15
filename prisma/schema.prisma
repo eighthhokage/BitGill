@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Invoice {
+  id                    String   @id @default(cuid())
+  slug                  String   @unique
+  network               String   @default("mainnet")
+  receiveAddress        String
+  amountSats            BigInt
+  memo                  String?
+  notifyEmail           String? // comma-separated list, max 2, didn't change naming convention b.c lazy ^^:;
+  requiredConfirmations Int      @default(1)
+
+  status                String   @default("UNPAID")
+  txid                  String?
+  blockHeight           Int?
+  finalizedAt           DateTime?
+
+  // Receipt email tracking (prevents double-send)
+  receiptSentAt         DateTime?
+  receiptTxid           String?
+
+  createdAt             DateTime @default(now())
+  expiresAt             DateTime?
+
+  @@index([receiveAddress])
+  @@index([status])
+}

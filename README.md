@@ -1,3 +1,9 @@
+Bitgill is a free Bitcoin invoice generator by HarvestBTC ^^ 
+You can use it to generate an invoice for payment and tracking and I hope it will foster more bitcoin transactions!
+:) :) :) 
+Stack sats, stay humble, and praise God! 
+If you want to donate you can send to bc1qfjdzkht7srmqd0y296pqw3zkwsfkxjl9h5ah35
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

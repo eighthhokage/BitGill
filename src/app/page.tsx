@@ -213,10 +213,6 @@ export default function HomePage() {
             </button>
           </form>
         </div>
-
-        <footer className="text-xs text-gray-500">
-          This generates an on-chain Bitcoin invoice (BIP21) and tracks confirmations automatically.
-        </footer>
       </div>
     </main>
   );

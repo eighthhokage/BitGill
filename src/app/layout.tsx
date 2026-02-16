@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "BitGill",
-  description: "Free Bitcoin invoice generator by HarvestBTC.",
+  description: "A free Bitcoin invoice generator by HarvestBTC",
 };
 
 export default function RootLayout({
@@ -28,10 +28,20 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col">
           <div className="flex-1">{children}</div>
 
-          <footer className="py-6 px-6">
-            <div className="mx-auto max-w-xl text-center text-xs text-gray-500 space-y-1">
+          <footer className="px-6 pb-6 pt-2">
+            <div className="mx-auto w-full max-w-xl text-center text-xs text-gray-500 space-y-1">
               <div>USD estimate is informational.</div>
               <div>BitGill does not custody funds.</div>
+              <div>
+                <a
+                  href="https://github.com/eighthhokage/BitGill"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-600 underline"
+                >
+                  View source code on GitHub
+                </a>
+              </div>
             </div>
           </footer>
         </div>

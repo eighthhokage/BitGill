@@ -291,9 +291,7 @@ export default function InvoiceClient({ invoice }: { invoice: Invoice }) {
             </button>
           </div>
 
-          {pollError ? (
-            <div className="text-xs text-gray-500">{pollError}</div>
-          ) : null}
+          {pollError ? <div className="text-xs text-gray-500">{pollError}</div> : null}
 
           {state.txid ? (
             <div className="pt-2 space-y-1">
@@ -340,10 +338,6 @@ export default function InvoiceClient({ invoice }: { invoice: Invoice }) {
             <div className="text-xs text-gray-500">Last checked: {lastCheckedAt}</div>
           ) : null}
         </div>
-
-        <footer className="text-xs text-gray-500">
-          Note: “FINALIZED” means the transaction reached the required confirmations.
-        </footer>
       </div>
     </div>
   );

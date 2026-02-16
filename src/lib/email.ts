@@ -1,9 +1,10 @@
 import { Resend } from "resend";
 
-const apiKey = process.env.RESEND_API_KEY;
-if (!apiKey) throw new Error("RESEND_API_KEY is not set");
+function requireEnv(name: string): string {
+  const v = process.env[name];
+  if (!v) throw new Error(`${name} is not set`);
+  return v;
+}
 
-export const resend = new Resend(apiKey);
-
-export const EMAIL_FROM = process.env.EMAIL_FROM;
-if (!EMAIL_FROM) throw new Error("EMAIL_FROM is not set");
+export const resend = new Resend(requireEnv("RESEND_API_KEY"));
+export const EMAIL_FROM = requireEnv("EMAIL_FROM");

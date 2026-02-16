@@ -41,3 +41,60 @@ If you want to donate you can send to bc1qfjdzkht7srmqd0y296pqw3zkwsfkxjl9h5ah35
 ### 1) Install dependencies
 ```bash
 npm install
+
+
+2) Configure environment variables
+Deployment (Vercel + Neon + Cloudflare)
+1) Neon (Postgres)
+
+Create a Neon project + database.
+
+Copy your DATABASE_URL into Vercel environment variables.
+
+2) Vercel
+
+Import the GitHub repo into Vercel.
+
+Add the following environment variables in Vercel → Project → Settings → Environment Variables:
+
+DATABASE_URL
+
+RESEND_API_KEY
+
+EMAIL_FROM
+
+(optional) ESPLORA_BASE_URL
+
+Vercel will build and run prisma migrate deploy during deploy if you’ve set up a build script to do so.
+
+3) Add custom domain
+
+Add bitgill.com (and optionally www.bitgill.com) in Vercel → Domains.
+
+In Cloudflare DNS, point the domain to Vercel using the records Vercel tells you to set.
+
+Many setups use:
+
+A record for apex (bitgill.com) → Vercel IP
+
+CNAME for www → cname.vercel-dns.com
+
+Keep Cloudflare “Proxy status” DNS only (gray cloud) until Vercel verifies the domain.
+
+After verification, you can turn proxying on if you want Cloudflare features in front.
+
+4) Cloudflare rate limiting (recommended)
+
+Create a rate limiting rule for invoice creation to reduce abuse.
+
+Suggested target:
+
+POST requests to /api/invoices
+
+Example (tweak for your traffic):
+
+60 requests per minute per IP (or equivalent)
+
+Contributing
+
+PRs welcome. If you’re changing invoice semantics, API routes, or email receipt behavior, please keep the UX simple and spam-resistant.

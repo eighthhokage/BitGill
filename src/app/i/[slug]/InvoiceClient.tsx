@@ -133,7 +133,7 @@ export default function InvoiceClient({ invoice }: { invoice: Invoice }) {
 
       setConfirmations(typeof data.confirmations === "number" ? data.confirmations : null);
       setLastCheckedAt(new Date().toLocaleTimeString());
-    } catch (e: any) {
+    } catch {
       // Don’t spam console (Next overlay can get annoying). Show a tiny hint instead.
       setPollError("Network hiccup — retrying…");
     } finally {
@@ -178,7 +178,7 @@ export default function InvoiceClient({ invoice }: { invoice: Invoice }) {
             </div>
             <div className="mt-3">
               <a
-                href="/"
+                href="/create"
                 className="inline-flex items-center rounded-lg border border-amber-300 bg-white px-3 py-2 text-sm font-medium hover:bg-amber-100"
               >
                 Create a new invoice
@@ -196,7 +196,7 @@ export default function InvoiceClient({ invoice }: { invoice: Invoice }) {
               {usdEstimate !== null ? (
                 <div className="text-xs text-gray-500">
                   ≈ ${usdEstimate.toFixed(2)} USD{" "}
-                  <span className="text-gray-400">(estimate)</span>
+                  <span className="text-gray-600">(estimate)</span>
                 </div>
               ) : null}
             </div>
@@ -241,7 +241,7 @@ export default function InvoiceClient({ invoice }: { invoice: Invoice }) {
               ) : null}
             </div>
 
-            {copied ? <div className="text-xs text-green-600 pt-2">{copied}</div> : null}
+            {copied ? <div className="text-xs text-green-700 pt-2">{copied}</div> : null}
           </div>
 
           {state.memo ? (

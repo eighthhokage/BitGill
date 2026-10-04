@@ -3,12 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "BitGill | Bitcoin Invoice Generator",
+  title: "BitGill | Bitcoin Invoice and Receipt Generator",
   description:
-    "Create a Bitcoin invoice and share a Bitcoin payment request with BitGill, a simple non-custodial Bitcoin invoice generator.",
+    "Create shareable Bitcoin payment requests with BitGill, a non-custodial Bitcoin invoice and receipt generator with optional email receipts for up to two recipients.",
   keywords: [
     "Bitcoin invoice",
     "Bitcoin invoice generator",
+    "Bitcoin receipt generator",
+    "Bitcoin payment receipt",
     "create Bitcoin invoice",
     "Bitcoin payment request",
     "Bitcoin payment link",
@@ -18,14 +20,19 @@ export const metadata: Metadata = {
     "Bitcoin invoice for small business",
   ],
   openGraph: {
-    title: "BitGill Bitcoin Invoice Generator",
+    title: "BitGill Bitcoin Invoice and Receipt Generator",
     description:
-      "Create shareable on-chain Bitcoin payment requests. BitGill is non-custodial and never holds funds.",
+      "Create shareable on-chain Bitcoin payment requests with optional email receipts for up to two recipients. BitGill is non-custodial and never holds funds.",
     type: "website",
   },
 };
 
 const faqItems = [
+  {
+    question: "Can BitGill email a receipt?",
+    answer:
+      "Yes. When creating an invoice, you can optionally provide up to two email addresses for a Bitcoin payment receipt. BitGill sends the receipt when a payment-status check detects that the payment has reached your chosen confirmation target.",
+  },
   {
     question: "What is a Bitcoin invoice?",
     answer:
@@ -90,9 +97,10 @@ export default function LandingPage() {
                 Create a Bitcoin invoice people can pay directly on-chain.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-gray-600">
-                BitGill is a simple Bitcoin invoice generator for creating shareable Bitcoin
-                payment requests. Make a Bitcoin payment link with an address, amount, memo, and
-                confirmation target without turning BitGill into a custodian.
+                BitGill is a simple Bitcoin invoice and receipt generator for creating shareable
+                Bitcoin payment requests. Create a Bitcoin payment link with an address, amount,
+                memo, confirmation target, and optional email receipts for up to two recipients,
+                all without BitGill ever taking custody of the payment.
               </p>
             </div>
 
@@ -174,8 +182,9 @@ export default function LandingPage() {
               {[
                 "Enter the Bitcoin address that should receive the payment.",
                 "Add the amount in sats, an optional memo, and a confirmation target.",
+                "Optionally enter up to two email addresses to receive the payment receipt once the confirmation target is detected.",
                 "Share the Bitcoin payment request link with the person paying the invoice.",
-                "The payer sends funds directly to the address you provided.",
+                "The payer sends funds directly to the address you provided, while BitGill never takes custody of the payment.",
               ].map((item, index) => (
                 <div key={item} className="flex gap-3">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-sm font-medium">
@@ -192,7 +201,7 @@ export default function LandingPage() {
             <div className="mt-6 space-y-4 text-sm leading-6 text-gray-700">
               <p>
                 BitGill keeps Bitcoin invoicing simple. It is useful when you want an on-chain
-                Bitcoin invoice without a heavy checkout system.
+                Bitcoin invoice without a heavy checkout system, with optional emailed receipts.
               </p>
               <p>
                 Use it to create Bitcoin invoice links for freelancers, small business payments,

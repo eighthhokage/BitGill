@@ -122,7 +122,7 @@ export default function CreatePage() {
             <div>
               <label className="block text-sm font-medium mb-1">Receiving address</label>
               <input
-                className="w-full rounded-lg border px-3 py-2 bg-transparent"
+                className="w-full rounded-lg border px-3 py-2 bg-white"
                 placeholder="bc1q..."
                 value={receiveAddress}
                 onChange={(e) => setReceiveAddress(e.target.value)}
@@ -134,7 +134,7 @@ export default function CreatePage() {
             <div>
               <label className="block text-sm font-medium mb-1">Amount (sats)</label>
               <input
-                className="w-full rounded-lg border px-3 py-2 bg-transparent"
+                className="w-full rounded-lg border px-3 py-2 bg-white"
                 inputMode="numeric"
                 placeholder="10000"
                 value={amountSats}
@@ -154,7 +154,7 @@ export default function CreatePage() {
                     const usd = (n / 100_000_000) * usdPerBtc;
                     return usd.toLocaleString(undefined, { style: "currency", currency: "USD" });
                   })()}{" "}
-                  <span className="text-gray-400">(estimate)</span>
+                  <span className="text-gray-600">(estimate)</span>
                 </p>
               ) : null}
             </div>
@@ -162,7 +162,7 @@ export default function CreatePage() {
             <div>
               <label className="block text-sm font-medium mb-1">Memo (optional)</label>
               <input
-                className="w-full rounded-lg border px-3 py-2 bg-transparent"
+                className="w-full rounded-lg border px-3 py-2 bg-white"
                 placeholder="What's this for?"
                 value={memo}
                 onChange={(e) => setMemo(e.target.value)}
@@ -173,7 +173,7 @@ export default function CreatePage() {
             <div>
               <label className="block text-sm font-medium mb-1">Email for receipt (optional)</label>
               <input
-                className="w-full rounded-lg border px-3 py-2 bg-transparent"
+                className="w-full rounded-lg border px-3 py-2 bg-white"
                 placeholder="name@email.com, other@email.com"
                 value={notifyEmail}
                 onChange={(e) => setNotifyEmail(e.target.value)}
@@ -188,17 +188,17 @@ export default function CreatePage() {
             <div>
               <label className="block text-sm font-medium mb-1">Confirmations required</label>
               <select
-                className="w-full rounded-lg border px-3 py-2 bg-transparent"
+                className="w-full rounded-lg border px-3 py-2 bg-white"
                 value={requiredConfirmations}
                 onChange={(e) => setRequiredConfirmations(Number(e.target.value) as 1 | 2 | 3)}
               >
-                <option value={1} className="bg-black text-white">
+                <option value={1} className="bg-white text-gray-900">
                   1 confirmation (fast)
                 </option>
-                <option value={2} className="bg-black text-white">
+                <option value={2} className="bg-white text-gray-900">
                   2 confirmations
                 </option>
-                <option value={3} className="bg-black text-white">
+                <option value={3} className="bg-white text-gray-900">
                   3 confirmations
                 </option>
               </select>
